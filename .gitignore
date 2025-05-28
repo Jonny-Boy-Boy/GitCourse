@@ -33,3 +33,6 @@
 
 # remove cmake folder
 /cmake*
+
+# Project folders
+/.idea/*
