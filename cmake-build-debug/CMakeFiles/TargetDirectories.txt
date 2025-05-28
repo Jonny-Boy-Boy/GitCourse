@@ -1,0 +1,3 @@
+D:/GitCourse/GitCourse/cmake-build-debug/CMakeFiles/GitCourse.dir
+D:/GitCourse/GitCourse/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/GitCourse/GitCourse/cmake-build-debug/CMakeFiles/rebuild_cache.dir
