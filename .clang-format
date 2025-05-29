@@ -1,0 +1,88 @@
+# Section for cpp files.
+Language: Cpp
+
+# General
+ColumnLimit: 0      # Limit for length of a single line. Set to zero because manual changes will be overridden otherwise.
+SortIncludes: CaseInsensitive  # Sort included automatically (use a blank line to break the sorting).
+
+# Header include paths will be grouped into the following blocks:
+# 1st The header directly belonging to the source file will always be on top.
+# 2nd All external/standard lib include paths using <>.
+# 3rd All local lib include paths using a moba namespace.
+# 4th Everything else.
+
+IncludeBlocks: Regroup
+IncludeCategories:
+  - Regex: '^["<](mapp|mauth|mbase|mbur|mcan|mdata|mhttp|mkafka|mmachine|mmodel|mmotion|mopl|mtcpip|mtime|mpatterns)/'
+    Priority: 2
+  - Regex: '^<'
+    Priority: 1
+  - Regex: '.*'
+    Priority: 3
+
+# Comment (1.x) specific settings.
+AlignTrailingComments: true     # Rule 1.2.
+SpacesBeforeTrailingComments: 1 # Rule 1.2.
+FixNamespaceComments: false     # Prevent useless comment
+
+# Layout (2.x) specific settings.
+BreakBeforeBraces: Custom                   # Rule 2.2 (overall style, we use Allman but some options only work in Custom).
+BraceWrapping:
+  AfterCaseLabel: true
+  AfterClass: true
+  AfterControlStatement: Always
+  AfterEnum: true
+  AfterExternBlock: true
+  AfterFunction: true
+  AfterNamespace: true
+  AfterObjCDeclaration: true
+  AfterStruct: true
+  AfterUnion: true
+  BeforeLambdaBody: false
+  BeforeWhile: true
+  BeforeCatch: true
+  BeforeElse: true
+IndentExternBlock: AfterExternBlock                   # Format for 'extern' block.
+Cpp11BracedListStyle: true                            # Format for braced list initialization.
+NamespaceIndentation: All                             # Indention in a namespace.
+ConstructorInitializerIndentWidth: 2                  # Indention for initializer list.
+BreakConstructorInitializers: AfterColon              # Keep ':' of initializer list on same row as constructor.
+AllowAllArgumentsOnNextLine: true
+AllowAllParametersOfDeclarationOnNextLine: true
+AllowAllConstructorInitializersOnNextLine: false
+AllowShortLambdasOnASingleLine: All
+ConstructorInitializerAllOnOneLineOrOnePerLine: true  # Allow multi line initializer list
+SeparateDefinitionBlocks: Always                      # New line after the closing brace of a definition block.
+InsertNewlineAtEOF: true
+RemoveSemicolon: true                                 # Remove semicolons after the closing braces of functions.
+
+IndentWidth: 2                              # Rule 2.3 (number of spaces to use for indention).
+UseTab: Never                               # Rule 2.3 (disable tabs, always use spaces).
+ContinuationIndentWidth: 2                  # Rule 2.3 (indention for long line breaks).
+BreakBeforeBinaryOperators: None            # Rule 2.4.
+SpaceBeforeAssignmentOperators: true        # Rule 2.5.
+SpaceBeforeParens: ControlStatements        # Rule 2.5.
+AlignConsecutiveAssignments: Consecutive    # Rule 2.5.
+SpaceInEmptyParentheses: false              # Rule 2.5.
+SpacesInAngles: false                       # Rule 2.5.
+SpacesInCStyleCastParentheses: false        # Rule 2.5.
+SpacesInContainerLiterals: false            # Rule 2.5.
+SpacesInParentheses: false                  # Rule 2.5.
+SpacesInSquareBrackets: false               # Rule 2.5.
+SpaceAfterCStyleCast: false                 # Rule 2.5.
+SpaceAfterTemplateKeyword: false            # Rule 2.5.
+SpaceBeforeRangeBasedForLoopColon: false    # Rule 2.5.
+
+# Declarations and naming conventions (3.x) specific settings.
+AccessModifierOffset: -2              # Rule 3.4 (class format).
+AlwaysBreakTemplateDeclarations: Yes  # Rule 3.4 (template format).
+EmptyLineBeforeAccessModifier: Always # Empty line before 'protected' and 'private'.
+
+# Statements and expressions (4.x) specific settings.
+AllowShortBlocksOnASingleLine: Empty      # Rule 4.1 (no single line if statements, for example).
+PointerAlignment: Left                    # Rule 4.2 (place of * and &).
+AllowShortCaseLabelsOnASingleLine: false  # Rule 4.3 (switch case - no single line statements).
+IndentCaseLabels: true                    # Rule 4.3 (switch case - indent case labels).
+InsertBraces: true                        # Insert braces after control statements.
+#RemoveParentheses: MultipleParentheses is not working with MOCK_METHOD in version 21.0.0. It removes mandatory ().
+#RemoveParentheses: MultipleParentheses    # Replace multiple parentheses with single parentheses.
